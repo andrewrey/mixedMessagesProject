@@ -14,27 +14,13 @@ const quotes = [
   "Just do it!!!",
 ];
 
-rl.question(
-  chalk.bold.red.inverse("What is your name fine person??\n"),
-  (reply) => {
-    name = reply.trim();
-    rl.question(
-      chalk.inverse.green(`${name}, are you looking for a quote today?\n`),
-      (reply) => {
-        console.log(reply.trim());
-        if (reply.trim() === "yes") {
-          console.log(
-            `Your quote of the day is:\n ${chalk.bgWhite.cyan.bold(
-              quotes[Math.floor(Math.random() * quotes.length)]
-            )}`
-          );
-        }
-        rl.close();
-      }
-    );
-  }
-);
+let doYouWantAnotherQuote = () => {
+  rl.question("What is you name fine customer??", (reply) => {
+    console.log(reply);
+    rl.setPrompt("This is a test\n");
+    rl.prompt();
+    rl.on("line", (reply) => {});
+  });
+};
 
-rl.on("close", () => {
-  console.log(chalk.inverse.blue("Goodbye, come again!!!"));
-});
+doYouWantAnotherQuote();
