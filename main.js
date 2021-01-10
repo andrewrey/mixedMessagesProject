@@ -24,7 +24,9 @@ rl.question(
         console.log(reply.trim());
         if (reply.trim() === "yes") {
           console.log(
-            chalk.yellow.bold(quotes[Math.floor(Math.random() * quotes.length)])
+            `Your quote of the day is:\n ${chalk.bgWhite.cyan.bold(
+              quotes[Math.floor(Math.random() * quotes.length)]
+            )}`
           );
         }
         rl.close();
