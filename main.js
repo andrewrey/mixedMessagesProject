@@ -1,4 +1,5 @@
 const readline = require('readline');
+const chalk = require('chalk');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -7,14 +8,14 @@ const rl = readline.createInterface({
 
 let name;
 
-rl.question('What is your name fine person??\n', (reply)=>{
+rl.question(chalk.bold.red.inverse('What is your name fine person??\n'), (reply)=>{
     name = reply.trim();
-    rl.question(`${name}, are you looking for a quote today?\n`, (reply)=>{
+    rl.question(chalk.inverse.green(`${name}, are you looking for a quote today?\n`), (reply)=>{
         console.log(reply.trim());
         rl.close();
     });
 })
 
 rl.on('close', ()=>{
-    console.log('Goodbye');
+    console.log(chalk.inverse.blue('Goodbye, come again!!!'));
 })
