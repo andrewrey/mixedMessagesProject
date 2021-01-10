@@ -15,11 +15,17 @@ const quotes = [
 ];
 
 let doYouWantAnotherQuote = () => {
-  rl.question("What is you name fine customer??", (reply) => {
-    console.log(reply);
-    rl.setPrompt("This is a test\n");
+  rl.question("What is you name fine customer??\n", (reply) => {
+    rl.setPrompt("Would you like a quote today?\n");
     rl.prompt();
-    rl.on("line", (reply) => {});
+    rl.on("line", (reply) => {
+      if (reply.trim() === "yes") {
+        console.log(quotes[Math.floor(Math.random() * quotes.length)]);
+        rl.prompt();
+      } else {
+        rl.close();
+      }
+    });
   });
 };
 
