@@ -7,11 +7,15 @@ const rl = readline.createInterface({
 });
 
 let name;
+const quotes = ['Wow, no way!!!', 'For sure man', 'You\'ve got to be kidding me???', 'Just do it!!!'];
 
 rl.question(chalk.bold.red.inverse('What is your name fine person??\n'), (reply)=>{
     name = reply.trim();
     rl.question(chalk.inverse.green(`${name}, are you looking for a quote today?\n`), (reply)=>{
         console.log(reply.trim());
+        if(reply.trim() === 'yes'){
+
+        }
         rl.close();
     });
 })
