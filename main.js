@@ -34,6 +34,10 @@ let doYouWantAnotherQuote = () => {
       }
     });
   });
+
+  rl.on("close", () => {
+    console.log(chalk.inverse("Thank you for visiting"));
+  });
 };
 
 doYouWantAnotherQuote();
