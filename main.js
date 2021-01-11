@@ -15,13 +15,18 @@ const quotes = [
 ];
 
 let doYouWantAnotherQuote = () => {
-  rl.question("What is your name, oh fine customer??\n", (reply) => {
+  rl.question(chalk.bgMagenta("Please provide your name below:\n"), (reply) => {
     name = reply.trim();
-    rl.setPrompt(`Would you like a quote today? ${name}\n`);
+    rl.setPrompt(chalk.blue(`Would you like a quote today? ${name}\n`));
     rl.prompt();
     rl.on("line", (reply) => {
       if (reply.trim() === "yes") {
-        console.log(quotes[Math.floor(Math.random() * quotes.length)]);
+        console.log(`Your requested quote:`);
+        console.log(
+          chalk.bgGreen(
+            `${quotes[Math.floor(Math.random() * quotes.length)]}\n`
+          )
+        );
         rl.setPrompt("Would you like another quote today?\n\n");
         rl.prompt();
       } else {
